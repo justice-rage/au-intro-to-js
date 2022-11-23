@@ -1,7 +1,7 @@
-function getRandom() {
-    const output = Math.random();
+function getFloor(x) {
+    const output = Math.floor(x)
 
     return output;
 }
 
-module.exports = getRandom;
+module.exports = getFloor;
