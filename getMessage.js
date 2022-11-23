@@ -1,7 +1,7 @@
-function product(a,b) {
-    const output = a * b;
+function average(a, b, c, d) {
+    const output = (a + b + c + d) / 4;
 
     return output;
 }
 
-module.exports = product;
+module.exports = average;

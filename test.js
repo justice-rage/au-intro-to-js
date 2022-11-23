@@ -1,8 +1,8 @@
-const product = require('../product');
+const average = require('../average');
 const {assert} = require('chai');
 
-it('should multiple two numbers', () => {
-    assert.equal(product(2,2), 4);
-    assert.equal(product(6,10), 60);
-    assert.equal(product(10,22), 220);
+it('should give the average of the numbers', () => {
+    assert.equal(average(2,4,6,8), 5);
+    assert.equal(average(10,30,20,20), 20);
+    assert.equal(average(0,2,7,3), 3);
 });
