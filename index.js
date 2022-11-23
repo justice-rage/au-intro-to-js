@@ -1,4 +1,4 @@
-const a = true;
-const b = false;
+const a = "World";
+const b = `Hello ${a}`
 
-module.exports = {a, b};
+module.exports = { a,b }

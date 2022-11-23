@@ -1,14 +1,18 @@
 const assert = require('assert');
 const {a,b} = require('../index');
 
-it('a should be boolean', () => {
-    assert.equal(typeof a, 'boolean');
+it('a should be a string', () => {
+    assert.equal(typeof a, "string");
 });
 
-it('b should be boolean', () => {
-    assert.equal(typeof b, 'boolean');
+it('a should be "World"', () => {
+    assert.equal(a, "World");
 });
 
-it('a should not equal b', () => {
-    assert.notEqual(a,b);
+it('b should be a string', () => {
+    assert.equal(typeof b, "string");
+});
+
+it('b should be "Hello World"', () => {
+    assert.equal(b, "Hello World");
 });
