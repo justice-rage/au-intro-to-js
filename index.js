@@ -1,4 +1,4 @@
-const a = 1;
-const b = a;
+const a = true;
+const b = false;
 
 module.exports = {a, b};
