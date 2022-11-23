@@ -1,7 +1,7 @@
-function addTwo(input) {
-    const output = input + 2;
+function product(a,b) {
+    const output = a * b;
 
     return output;
 }
 
-module.exports = addTwo;
+module.exports = product;
