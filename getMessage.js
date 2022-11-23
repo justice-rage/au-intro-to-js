@@ -1,5 +1,5 @@
-function getMessage() {
-
+function getMessage(hi) {
+    return `hi`
 }
 
 module.exports = getMessage;
