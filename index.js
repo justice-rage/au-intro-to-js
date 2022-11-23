@@ -1,3 +1,4 @@
-const a = 1
+const a = 1;
+const b = a;
 
-module.exports = a;
+module.exports = {a, b};

@@ -1,6 +1,6 @@
 const assert = require('assert');
-const a = require('../index');
+const {a,b} = require('../index');
 
-it('the variable a should store a number', () => {
-    assert.equal(typeof a, "number");
+it('a and b should be equal', () => {
+    assert.equal(a,b);
 });
