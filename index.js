@@ -1,5 +1,4 @@
-let a = 3;
+// all shoes are on sale this week!
+const shoesCost = 49;
 
-a = 5;
-
-module.exports = a;
+module.exports = shoesCost;

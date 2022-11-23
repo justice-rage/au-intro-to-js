@@ -1,6 +1,6 @@
 const assert = require('assert');
-const a = require('../index');
+const shoesCost = require('../index');
 
-it('a should equal 5', () => {
-    assert.equal(a, 5);
+it('shoesCost should be 49', () => {
+    assert.equal(shoesCost, 49);
 });
