@@ -1,4 +1,5 @@
-const a = "World";
-const b = `Hello ${a}`
+let a = 3;
 
-module.exports = { a,b }
+a = 5;
+
+module.exports = a;
