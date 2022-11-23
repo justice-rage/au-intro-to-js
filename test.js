@@ -1,6 +1,7 @@
-const assert = require('assert');
-const shoesCost = require('../index');
+const getMessage = require('../getMessage');
+const {assert} = require('chai');
 
-it('shoesCost should be 49', () => {
-    assert.equal(shoesCost, 49);
+it('should return a message', () => {
+    assert(getMessage(), "it looks like nothing was returned from getMessage")
+    assert.equal(typeof getMessage(), "string", "a string should be returned from getMessage");
 });
