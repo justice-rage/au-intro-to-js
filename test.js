@@ -1,7 +1,8 @@
-const getMessage = require('../getMessage');
+const addTwo = require('../addTwo');
 const {assert} = require('chai');
 
-it('should return a message', () => {
-    assert(getMessage(), "it looks like nothing was returned from getMessage")
-    assert.equal(typeof getMessage(), "string", "a string should be returned from getMessage");
+it('should add two', () => {
+    assert.equal(addTwo(2), 4);
+    assert.equal(addTwo(6), 8);
+    assert.equal(addTwo(10), 12);
 });

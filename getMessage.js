@@ -1,5 +1,7 @@
-function getMessage(hi) {
-    return `hi`
+function addTwo(input) {
+    const output = input + 2;
+
+    return output;
 }
 
-module.exports = getMessage;
+module.exports = addTwo;
