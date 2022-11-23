@@ -1,7 +1,7 @@
-function average(a, b, c, d) {
-    const output = (a + b + c + d) / 4;
+function getRandom() {
+    const output = Math.random();
 
     return output;
 }
 
-module.exports = average;
+module.exports = getRandom;
