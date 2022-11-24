@@ -1,12 +1,14 @@
-const findFirstX = require('../findFirstX');
+const splitAtX = require('../splitAtX');
 const { assert } = require('chai');
 
-describe('findFirstX', () => {
-    it('should find the first x in a short string', () => {
-        assert.equal(findFirstX("abcx"), 3);
+describe('splitAtX', () => {
+    it('should handle the first half being longer', () => {
+        assert.equal(splitAtX("Happyxdays"), "Happy");
+        assert.equal(splitAtX("before the x is long"), "before the ");
     });
 
-    it('should find the first x in a long string', () => {
-        assert.equal(findFirstX("should find the first x in a long string"), 22);
+    it('should handle the second half being longer', () => {
+        assert.equal(splitAtX("10xDeveloper"), "Developer");
+        assert.equal(splitAtX("before the x is shorter than after"), " is shorter than after");
     });
 });
