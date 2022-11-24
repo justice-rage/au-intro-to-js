@@ -1,23 +1,16 @@
-const assert = require('assert');
-const actualMessage = require('../index');
-const fakeName = require('../fakeName');
+const { assert } = require('chai');
+const checkNumber = require('../checkNumber');
 
-const expectedMessage = `
-    Hello, ${fakeName}! You left a package at the office today.
-    You can pick up tomorrow at 10am, ${fakeName}. 
-    If not I will drop it off this weekend.
-    Goodbye ${fakeName}!
-`;
+describe('checkNumber', () => {
+    it('should return positive', () => {
+        assert.equal(checkNumber(15), 'positive');
+    });
 
-it('should replace the name', () => {
-    const isEqual = (actualMessage === expectedMessage);
+    it('should return negative', () => {
+        assert.equal(checkNumber(-5), 'negative');
+    });
 
-    if (!isEqual) {
-        console.log("Your Message: ", actualMessage)
-        console.log("Expected Message: ", expectedMessage)
-        assert(false);
-    }
-    else {
-        assert(true);
-    }
-});
+    it('should return zero', () => {
+        assert.equal(checkNumber(0), 'zero');
+    });
+})
