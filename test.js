@@ -1,8 +1,10 @@
-const getFloor = require('../getFloor');
-const {assert} = require('chai');
+const isEqual = require('../isEqual');
+const { assert } = require('chai');
 
-it('should return the floor of a floating point', () => {
-    assert.equal(getFloor(1.5), 1);
-    assert.equal(getFloor(3.14), 3);
-    assert.equal(getFloor(-12.312), -13);
+describe('isEqual', () => {
+    describe('if the values are equal', () => {
+        it('should return true', () => {
+            assert.equal(isEqual(2, 2), true);
+        });
+    });
 });
