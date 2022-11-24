@@ -1,14 +1,16 @@
 const { assert } = require('chai');
-const scream = require('../scream');
+const topDouble = require('../topDouble');
 
-describe('scream', () => {
-    it('should do a scream of length 1', () => {
-        assert.equal(scream(1), "a");
+describe('topDouble', () => {
+    it('should determine the top double of 1 less than 5', () => {
+        assert.equal(topDouble(1, 5), 4);
     });
-    it('should do a scream of length 5', () => {
-        assert.equal(scream(5), "aAaAa");
+
+    it('should determine the top double of 2 less than 100', () => {
+        assert.equal(topDouble(2, 100), 64);
     });
-    it('should do a scream of length 10', () => {
-        assert.equal(scream(10), "aAaAaAaAaA");
+
+    it('should determine the top double of 5 less than 100', () => {
+        assert.equal(topDouble(5, 100), 80);
     });
 });
