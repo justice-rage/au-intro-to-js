@@ -1,9 +1,18 @@
-function isEqual(a, b) {
-    if (a !== b) {
-        return true;
-    }   else {
-        return false;
+function greater(first, last) {
+    if (first > last) {
+        return first; 
+    } if (first < last) {
+        return last;
     }
 }
 
-module.exports = isNotEqual;
+// My Solution
+// function greater(first, last) {
+//     if (first > last) {
+//         return first 
+//     } else if (first < last) {
+//         return last
+//     } else (first === last)
+// }
+
+module.exports = greater;
