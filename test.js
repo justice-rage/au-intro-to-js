@@ -6,9 +6,9 @@ describe('scream', () => {
         assert.equal(scream(1), "a");
     });
     it('should do a scream of length 5', () => {
-        assert.equal(scream(5), "aaaaa");
+        assert.equal(scream(5), "aAaAa");
     });
     it('should do a scream of length 10', () => {
-        assert.equal(scream(10), "aaaaaaaaaa");
+        assert.equal(scream(10), "aAaAaAaAaA");
     });
 });
