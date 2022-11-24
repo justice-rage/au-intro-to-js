@@ -1,9 +1,9 @@
-function factorial(n) {
-    let result = 1;
+function scream(n) {
+    let str = "";
     for (let index = 1; index <= n; index++) {
-        result *= index;
+        str += "a";
     }
-    return result;
+    return str;
 }
 
-module.exports = factorial;
+module.exports = scream;
