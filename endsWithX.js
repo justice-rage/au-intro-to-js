@@ -1,5 +1,5 @@
 function startsWithX(string) {
-    return (string[0].toLowerCase() === `x`);
+    return (string[string.length - 1].toLowerCase() === `x`);
 }
 
 module.exports = startsWithX;
