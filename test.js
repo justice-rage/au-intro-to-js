@@ -1,16 +1,20 @@
 const { assert } = require('chai');
-const checkNumber = require('../checkNumber');
+const maxSum = require('../maxSum');
 
-describe('checkNumber', () => {
-    it('should return positive', () => {
-        assert.equal(checkNumber(15), 'positive');
-    });
-
-    it('should return negative', () => {
-        assert.equal(checkNumber(-5), 'negative');
-    });
-
+describe('maxSum', () => {
     it('should return zero', () => {
-        assert.equal(checkNumber(0), 'zero');
+        assert.equal(maxSum(0), 0);
     });
+
+    it('should return the max sum of 1', () => {
+        assert.equal(maxSum(1), 1);
+    });
+
+    it('should return the max sum of positive integer', () => {
+        assert.equal(maxSum(5), 15);
+    });
+
+    it('should return zero for a negative integer', () => {
+        assert.equal(maxSum(-5), 0)
+    })
 })
