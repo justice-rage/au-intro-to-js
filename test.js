@@ -1,16 +1,27 @@
+const isEven = require('../isEven');
 const { assert } = require('chai');
-const topDouble = require('../topDouble');
 
-describe('topDouble', () => {
-    it('should determine the top double of 1 less than 5', () => {
-        assert.equal(topDouble(1, 5), 4);
+describe('isEven', () => {
+    describe('even numbers', () => {
+        it('should return true', () => {
+            assert.equal(isEven(2), true);
+        });
+        it('should return true', () => {
+            assert.equal(isEven(4), true);
+        });
+        it('should return true', () => {
+            assert.equal(isEven(10), true);
+        });
     });
-
-    it('should determine the top double of 2 less than 100', () => {
-        assert.equal(topDouble(2, 100), 64);
-    });
-
-    it('should determine the top double of 5 less than 100', () => {
-        assert.equal(topDouble(5, 100), 80);
+    describe('odd numbers', () => {
+        it('should return false', () => {
+            assert.equal(isEven(1), false);
+        });
+        it('should return false', () => {
+            assert.equal(isEven(3), false);
+        });
+        it('should return false', () => {
+            assert.equal(isEven(9), false);
+        });
     });
 });
