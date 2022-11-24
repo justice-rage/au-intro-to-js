@@ -1,12 +1,23 @@
-const { assert } = require('chai');
-const smallerNumber = require('../smallerNumber');
+const assert = require('assert');
+const actualMessage = require('../index');
+const fakeName = require('../fakeName');
 
-describe('smallerNumber', () => {
-    it('should return the smaller number', () => {
-        assert.equal(smallerNumber(3, 5), 3);
-    });
+const expectedMessage = `
+    Hello, ${fakeName}! You left a package at the office today.
+    You can pick up tomorrow at 10am, ${fakeName}. 
+    If not I will drop it off this weekend.
+    Goodbye ${fakeName}!
+`;
 
-    it('should return the smaller number', () => {
-        assert.equal(smallerNumber(10, 4), 4);
-    });
-})
+it('should replace the name', () => {
+    const isEqual = (actualMessage === expectedMessage);
+
+    if (!isEqual) {
+        console.log("Your Message: ", actualMessage)
+        console.log("Expected Message: ", expectedMessage)
+        assert(false);
+    }
+    else {
+        assert(true);
+    }
+});
