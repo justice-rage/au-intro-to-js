@@ -1,10 +1,10 @@
-const isEqual = require('../isEqual');
+const isNotEqual = require('../isNotEqual');
 const { assert } = require('chai');
 
-describe('isEqual', () => {
-    describe('if the values are equal', () => {
+describe('isNotEqual', () => {
+    describe('if the values are not equal', () => {
         it('should return true', () => {
-            assert.equal(isEqual(2, 2), true);
+            assert.equal(isNotEqual(1, 2), true);
         });
     });
 });
