@@ -1,23 +1,20 @@
-const isEnough = require('../isEnough');
+const canAccess = require('../canAccess');
 const { assert } = require('chai');
 
-describe('isEnough', () => {
-    describe('if there is more than enough money', () => {
+describe('canAccess', () => {
+    describe('if they purchased a subscription', () => {
         it('should return true', () => {
-            assert.equal(isEnough(1, 2), true);
-            assert.equal(isEnough(100, 120), true);
+            assert.equal(canAccess(true, false), true);
         });
     });
-    describe('if there is not enough money', () => {
+    describe('if they have a free trial', () => {
+        it('should return true', () => {
+            assert.equal(canAccess(false, true), true);
+        });
+    });
+    describe('if they have not purchased and have no trial', () => {
         it('should return false', () => {
-            assert.equal(isEnough(1, 0), false);
-            assert.equal(isEnough(100, 99), false);
-        });
-    });
-    describe('if there is just enough money', () => {
-        it('should return true', () => {
-            assert.equal(isEnough(1, 1), true);
-            assert.equal(isEnough(100, 100), true);
+            assert.equal(canAccess(false, false), false);
         });
     });
 });
