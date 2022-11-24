@@ -1,20 +1,14 @@
+const startsWithX = require('../startsWithX');
 const { assert } = require('chai');
-const maxSum = require('../maxSum');
 
-describe('maxSum', () => {
-    it('should return zero', () => {
-        assert.equal(maxSum(0), 0);
+describe('startsWithX', () => {
+    it('should return true for a string starting with x', () => {
+        assert.equal(startsWithX("x"), true);
+        assert.equal(startsWithX("xpizza"), true);
     });
 
-    it('should return the max sum of 1', () => {
-        assert.equal(maxSum(1), 1);
+    it('should return false for a string not starting with x', () => {
+        assert.equal(startsWithX("pizza"), false);
+        assert.equal(startsWithX("zyx"), false);
     });
-
-    it('should return the max sum of positive integer', () => {
-        assert.equal(maxSum(5), 15);
-    });
-
-    it('should return zero for a negative integer', () => {
-        assert.equal(maxSum(-5), 0)
-    })
-})
+});
