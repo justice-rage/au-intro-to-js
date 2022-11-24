@@ -1,27 +1,12 @@
-const isEven = require('../isEven');
 const { assert } = require('chai');
+const smallerNumber = require('../smallerNumber');
 
-describe('isEven', () => {
-    describe('even numbers', () => {
-        it('should return true', () => {
-            assert.equal(isEven(2), true);
-        });
-        it('should return true', () => {
-            assert.equal(isEven(4), true);
-        });
-        it('should return true', () => {
-            assert.equal(isEven(10), true);
-        });
+describe('smallerNumber', () => {
+    it('should return the smaller number', () => {
+        assert.equal(smallerNumber(3, 5), 3);
     });
-    describe('odd numbers', () => {
-        it('should return false', () => {
-            assert.equal(isEven(1), false);
-        });
-        it('should return false', () => {
-            assert.equal(isEven(3), false);
-        });
-        it('should return false', () => {
-            assert.equal(isEven(9), false);
-        });
+
+    it('should return the smaller number', () => {
+        assert.equal(smallerNumber(10, 4), 4);
     });
-});
+})
