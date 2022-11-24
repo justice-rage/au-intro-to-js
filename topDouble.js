@@ -1,9 +1,9 @@
+// Official solution
 function topDouble(value, top) {
-    let sum = 1
-    while ((sum * 2) < top) {
-        sum = sum * value;
+    while(value < top) {
+        value *= 2;
     }
-    return sum;
+    return value / 2;
 }
 
 module.exports = topDouble;
