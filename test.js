@@ -1,18 +1,16 @@
 const {assert} = require('chai');
-const sumTogether = require('../sumTogether');
+const countElements = require('../countElements');
 
-describe('sumTogether', () => {
-    it('should return an empty array', () => {
-        const arr1 = [];
-        const arr2 = [];
-        const result = sumTogether(arr1, arr2);
-        assert.deepEqual(result, []);
+describe('countElements', () => {
+    it('should return an empty object', () => {
+        const elements = [];
+        const result = countElements(elements);
+        assert.deepEqual(result, {});
     })
 
-    it('should return an array of summed elements', () => {
-        const arr1 = [10, 20, 30];
-        const arr2 = [15, 25, 35];
-        const result = sumTogether(arr1, arr2);
-        assert.deepEqual(result, [25, 45, 65]);
+    it('should return an object of non-duplicative element counts', () => {
+        const elements = ["a", "a", "b", "c", "b", "d"];
+        const result = countElements(elements);
+        assert.deepEqual(result, {a: 2, b: 2, c: 1, d: 1})
     })
 })
