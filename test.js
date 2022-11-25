@@ -1,12 +1,16 @@
-const numberOfKeys = require('../numberOfKeys');
+const removeSecret = require('../removeSecret');
 const { assert } = require('chai');
 
-describe('numberOfKeys', () => {
-    it('should handle an object with 1 property', () => {
-        assert.equal(numberOfKeys({ prop: 1 }), 1);
-    });
+describe('removeSecret', () => {
+    it('should remove the secret', () => {
+        const person = {
+            name: "Alice",
+            secret: "afraid of the dark"
+        }
 
-    it('should handle an object with 3 properties', () => {
-        assert.equal(numberOfKeys({ a: 1, b: 2, c: 3 }), 3);
+        removeSecret(person);
+
+        assert.equal(person.name, "Alice");
+        assert.equal(person.secret, undefined);
     });
 });
