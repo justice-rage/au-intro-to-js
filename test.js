@@ -1,25 +1,25 @@
 const { assert } = require('chai');
-const addOne = require('../addOne');
+const removeOccurrences = require('../remove');
 
-describe('addOne', () => {
-    it('should handle a single element array', () => {
-        const array = [1];
-        const returned = addOne(array);
+describe('removeOccurrences', () => {
+    it('should handle a single removal in an array', () => {
+        let array = [1, 2, 3];
+        const returned = removeOccurrences(array, 1);
         assert.equal(returned, undefined, "the function should not return anything");
-        assert.sameMembers(array, [2]);
+        assert.sameMembers(array, [2, 3]);
     });
 
-    it('should handle an array with a few sequential elements', () => {
-        const array = [1, 2, 3];
-        const returned = addOne(array);
+    it('should handle removing multiple elements from an array', () => {
+        let array = [1, 2, 2, 3, 4, 3];
+        const returned = removeOccurrences(array, 2);
         assert.equal(returned, undefined, "the function should not return anything");
-        assert.sameMembers(array, [2, 3, 4]);
+        assert.sameMembers(array, [1, 3, 4, 3]);
     });
 
-    it('should handle a larger array', () => {
-        const array = [9, 12, 14, 16, 19];
-        const returned = addOne(array);
+    it('should handle removing all elements in an array', () => {
+        let array = [1, 1, 1, 1, 1, 1, 1];
+        const returned = removeOccurrences(array, 1);
         assert.equal(returned, undefined, "the function should not return anything");
-        assert.sameMembers(array, [10, 13, 15, 17, 20]);
+        assert.sameMembers(array, []);
     });
 });
