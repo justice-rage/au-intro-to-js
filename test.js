@@ -1,16 +1,28 @@
 const {assert} = require('chai');
-const countElements = require('../countElements');
+const playerHandScore = require('../playerHandScore');
 
-describe('countElements', () => {
-    it('should return an empty object', () => {
-        const elements = [];
-        const result = countElements(elements);
-        assert.deepEqual(result, {});
-    })
+describe('playerHandScore', () => {
+    it('should return a score of 0', () => {
+        const hand = "";
+        const result = playerHandScore(hand);
+        assert.equal(result, 0);
+    });
 
-    it('should return an object of non-duplicative element counts', () => {
-        const elements = ["a", "a", "b", "c", "b", "d"];
-        const result = countElements(elements);
-        assert.deepEqual(result, {a: 2, b: 2, c: 1, d: 1})
-    })
-})
+    it('should return the total hand score', () => {
+        const hand = "J";
+        const result = playerHandScore(hand);
+        assert.equal(result, 2);
+    });
+
+    it('should return the total hand score', () => {
+        const hand = "QQ";
+        const result = playerHandScore(hand);
+        assert.equal(result, 6);
+    });
+
+    it('should return the total hand score', () => {
+        const hand = "JKQQ";
+        const result = playerHandScore(hand);
+        assert.equal(result, 12);
+    });
+});
