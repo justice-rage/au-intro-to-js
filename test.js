@@ -1,16 +1,12 @@
-const removeSecret = require('../removeSecret');
 const { assert } = require('chai');
+const shortestString = require('../shortestString');
 
-describe('removeSecret', () => {
-    it('should remove the secret', () => {
-        const person = {
-            name: "Alice",
-            secret: "afraid of the dark"
-        }
-
-        removeSecret(person);
-
-        assert.equal(person.name, "Alice");
-        assert.equal(person.secret, undefined);
+describe('shortestString', () => {
+    it('should return the shorter string', () => {
+        assert.equal(shortestString('elephant', 'mouse'), 'mouse');
     });
-});
+
+    it('should return the shorter string', () => {
+        assert.equal(shortestString('lion', 'gazelle'), 'lion');
+    });
+})
