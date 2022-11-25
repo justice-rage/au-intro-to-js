@@ -1,16 +1,33 @@
 const { assert } = require('chai');
-const countC = require('../countC');
+const countVowels = require('../countVowels');
 
-describe('countC', () => {
+describe('countVowels', () => {
     it('should return zero', () => {
-        assert.equal(countC('pizza'), 0);
+        assert.equal(countVowels('bczx'), 0);
     });
 
-    it('should handle lowercase c', () => {
-        assert.equal(countC('character'), 2);
-    });
+    it('should count all vowels', () => {
+        assert.equal(countVowels("Igloo"), 3)
+    })
 
-    it('should handle uppercase c', () => {
-        assert.equal(countC('Circus'), 2);
-    });
+    describe('uppercase vowels', () => {
+        it('should count all uppercase vowels', () => {
+            assert.equal(countVowels('AEIOU'), 5);
+        });
+
+        it('should only count vowels', () => {
+            assert.equal(countVowels('APPLE'), 2);
+        });
+    })
+    
+
+    describe('lowercase vowels', () => {
+        it('should count all lowercase vowels', () => {
+            assert.equal(countVowels('aeiou'), 5);
+        });
+
+        it('should only count vowels', () => {
+            assert.equal(countVowels('apple'), 2);
+        });
+    })
 })
