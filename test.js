@@ -1,16 +1,32 @@
 const { assert } = require('chai');
-const reverse = require('../reverse');
+const isPalindrome = require('../palindrome');
 
-describe('reverse', () => {
-    it('should return an empty string', () => {
-        assert.equal(reverse(""), "");
-    });
+describe('isPalindrome', () => {
+    describe('is a palindrome', () => {
+        it('should return true', () => {
+            assert.equal(isPalindrome('pop'), true);
+        });
 
-    it('should reverse a short string', () => {
-        assert.equal(reverse('cat'), 'tac');
-    });
+        it('should return true', () => {
+            assert.equal(isPalindrome('kayak'), true);
+        });
 
-    it('should reverse a long string', () => {
-        assert.equal(reverse('macintosh'), 'hsotnicam');
-    });
+        it('should return true', () => {
+            assert.equal(isPalindrome('racecar'), true);
+        });
+    })
+    
+    describe('is not a palindrome', () => {
+        it('should return false', () => {
+            assert.equal(isPalindrome('bear'), false);
+        });
+
+        it('should return false', () => {
+            assert.equal(isPalindrome('pizza'), false);
+        });
+
+        it('should return false', () => {
+            assert.equal(isPalindrome('representative'), false);
+        });
+    })
 })
