@@ -1,14 +1,12 @@
-const splitAtX = require('../splitAtX');
 const { assert } = require('chai');
+const array = require('../array');
 
-describe('splitAtX', () => {
-    it('should handle the first half being longer', () => {
-        assert.equal(splitAtX("Happyxdays"), "Happy");
-        assert.equal(splitAtX("before the x is long"), "before the ");
+describe('array', () => {
+    it('should be an array of length 3', () => {
+        assert.equal(array.length, 3);
     });
 
-    it('should handle the second half being longer', () => {
-        assert.equal(splitAtX("10xDeveloper"), "Developer");
-        assert.equal(splitAtX("before the x is shorter than after"), " is shorter than after");
+    it('should contain elements 1,2,3', () => {
+        assert.sameMembers(array, [1,2,3]);
     });
 });
