@@ -1,33 +1,16 @@
 const { assert } = require('chai');
-const countVowels = require('../countVowels');
+const reverse = require('../reverse');
 
-describe('countVowels', () => {
-    it('should return zero', () => {
-        assert.equal(countVowels('bczx'), 0);
+describe('reverse', () => {
+    it('should return an empty string', () => {
+        assert.equal(reverse(""), "");
     });
 
-    it('should count all vowels', () => {
-        assert.equal(countVowels("Igloo"), 3)
-    })
+    it('should reverse a short string', () => {
+        assert.equal(reverse('cat'), 'tac');
+    });
 
-    describe('uppercase vowels', () => {
-        it('should count all uppercase vowels', () => {
-            assert.equal(countVowels('AEIOU'), 5);
-        });
-
-        it('should only count vowels', () => {
-            assert.equal(countVowels('APPLE'), 2);
-        });
-    })
-    
-
-    describe('lowercase vowels', () => {
-        it('should count all lowercase vowels', () => {
-            assert.equal(countVowels('aeiou'), 5);
-        });
-
-        it('should only count vowels', () => {
-            assert.equal(countVowels('apple'), 2);
-        });
-    })
+    it('should reverse a long string', () => {
+        assert.equal(reverse('macintosh'), 'hsotnicam');
+    });
 })
