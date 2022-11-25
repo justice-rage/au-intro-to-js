@@ -1,25 +1,20 @@
+const order = require('../order');
 const { assert } = require('chai');
-const removeOccurrences = require('../remove');
 
-describe('removeOccurrences', () => {
-    it('should handle a single removal in an array', () => {
-        let array = [1, 2, 3];
-        const returned = removeOccurrences(array, 1);
-        assert.equal(returned, undefined, "the function should not return anything");
-        assert.sameMembers(array, [2, 3]);
+describe('order', () => {
+    it('should have a number of pizzas', () => {
+        assert(order.hasOwnProperty('pizzas'), "make sure to add pizzas to the order object!");
+        assert.equal(typeof order.pizzas, "number");
+        assert.isAbove(order.pizzas, 0);
     });
 
-    it('should handle removing multiple elements from an array', () => {
-        let array = [1, 2, 2, 3, 4, 3];
-        const returned = removeOccurrences(array, 2);
-        assert.equal(returned, undefined, "the function should not return anything");
-        assert.sameMembers(array, [1, 3, 4, 3]);
+    it('should have an extraCheese boolean', () => {
+        assert(order.hasOwnProperty('extraCheese'), "make sure to add extraCheese to the order object!");
+        assert.equal(typeof order.extraCheese, "boolean");
     });
 
-    it('should handle removing all elements in an array', () => {
-        let array = [1, 1, 1, 1, 1, 1, 1];
-        const returned = removeOccurrences(array, 1);
-        assert.equal(returned, undefined, "the function should not return anything");
-        assert.sameMembers(array, []);
+    it('should have a deliveryInstructions string', () => {
+        assert(order.hasOwnProperty('deliveryInstructions'), "make sure to add deliveryInstructions to the order object!");
+        assert.equal(typeof order.deliveryInstructions, "string");
     });
 });
