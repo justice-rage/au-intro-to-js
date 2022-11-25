@@ -1,20 +1,25 @@
 const { assert } = require('chai');
-const unique = require('../unique');
+const addOne = require('../addOne');
 
-describe('unique', () => {
-    it('should return an array with all unique elements', () => {
-        assert.sameMembers(unique([1,2,3]), [1,2,3]);
+describe('addOne', () => {
+    it('should handle a single element array', () => {
+        const array = [1];
+        const returned = addOne(array);
+        assert.equal(returned, undefined, "the function should not return anything");
+        assert.sameMembers(array, [2]);
     });
 
-    it('should handle an array with a few duplicates', () => {
-        const original = [1, 2, 2, 3, 4, 3];
-        assert.sameMembers(unique(original), [1, 2, 3, 4]);
-        assert.equal(original.length, 6, "the original array should be unmodified");
+    it('should handle an array with a few sequential elements', () => {
+        const array = [1, 2, 3];
+        const returned = addOne(array);
+        assert.equal(returned, undefined, "the function should not return anything");
+        assert.sameMembers(array, [2, 3, 4]);
     });
 
-    it('should handle a larger array with only duplicates', () => {
-        const original = [1, 1, 1, 1, 1, 1, 1];
-        assert.sameMembers(unique(original), [1]);
-        assert.equal(original.length, 7, "the original array should be unmodified");
+    it('should handle a larger array', () => {
+        const array = [9, 12, 14, 16, 19];
+        const returned = addOne(array);
+        assert.equal(returned, undefined, "the function should not return anything");
+        assert.sameMembers(array, [10, 13, 15, 17, 20]);
     });
 });
