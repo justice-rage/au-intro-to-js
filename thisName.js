@@ -2,4 +2,4 @@ function thisName() {
     return this.name;
 }
 
-module.exports = thisName;
+module.exports = thisName.bind({name: 'Bob'});
