@@ -1,16 +1,17 @@
 const { assert } = require('chai');
-const throwError = require('../throwError');
+const catchError = require('../catchError');
 
-describe('throwError', () => {
-    it('should throw an error', () => {
+describe('catchError', () => {
+    it('should catch a thrown error', () => {
         let ex;
-        try { 
-            throwError();
+        try {
+            catchError(() => {
+                throw new Error();
+            });
         }
-        catch(_ex) {
+        catch (_ex) {
             ex = _ex;
         }
-        assert(ex, "did not throw an error");
-        assert.equal(ex.constructor, Error);
+        assert(!ex, "the error should have been caught");
     });
 });
