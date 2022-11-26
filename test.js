@@ -1,18 +1,28 @@
 const { assert } = require('chai');
-const namedObject = require('../namedObject');
+const Celebrity = require('../Celebrity');
 
-describe('getName', () => {
-    it('should return the name of the object', () => {
-        assert.equal(namedObject.getName(), 'Bob');
-    });
+describe('Celebrity', () => {
+    describe('Will Smith', () => {
+        const celebrity = new Celebrity("Will Smith");
 
-    describe('if the name changes', () => {
-        before(() => {
-            namedObject.name = "Alice";
+        it('should set their name', () => {
+            assert.equal(celebrity.name, "Will Smith");
         });
 
-        it('should also change the name returned by getName', () => {
-            assert.equal(namedObject.getName(), 'Alice');
+        it('should set their age', () => {
+            assert.equal(celebrity.age, 51);
+        });
+    });
+
+    describe('Matt Damon', () => {
+        const celebrity = new Celebrity("Matt Damon");
+
+        it('should set their name', () => {
+            assert.equal(celebrity.name, "Matt Damon");
+        });
+
+        it('should set their age', () => {
+            assert.equal(celebrity.age, 49);
         });
     });
 });
