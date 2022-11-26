@@ -1,17 +1,19 @@
+const toNumber = require('../toNumber');
 const { assert } = require('chai');
-const startError = require('../startError');
 
-describe('startError', () => {
-    it('should throw a subclass of error', () => {
-        let ex;
-        try {
-            startError();
-        }
-        catch (_ex) {
-            ex = _ex;
-        }
-        assert(ex, "did not throw an error");
-        console.log(ex);
-        assert.equal(ex.__proto__.__proto__.constructor, Error);
+describe('toNumber', () => {
+    describe('given a convertible number', () => {
+        it('should convert it', () => {
+            assert.strictEqual(toNumber("1"), 1);
+            assert.strictEqual(toNumber("3"), 3);
+            assert.strictEqual(toNumber("10"), 10);
+        });
+    });
+    describe('given a non-convertible number', () => {
+        it('should return zero', () => {
+            assert.strictEqual(toNumber("a"), 0);
+            assert.strictEqual(toNumber("pizza"), 0);
+            assert.strictEqual(toNumber("abc123"), 0);
+        });
     });
 });
