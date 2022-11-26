@@ -1,24 +1,49 @@
-const personJSON = require('../personJSON');
 const { assert } = require('chai');
+const eitherNotBoth = require('../eitherNotBoth');
 
-let person;
-describe('personJSON', () => {
-    before(() => {
-        person = JSON.parse(personJSON);
+describe('eitherNotBoth', () => {
+    describe('divisible by 3 but not 5', () => {
+        it('should return true', () => {
+            assert.equal(eitherNotBoth(3), true);
+        });
+
+        it('should return true', () => {
+            assert.equal(eitherNotBoth(9), true);
+        });
+
+        it('should return true', () => {
+            assert.equal(eitherNotBoth(18), true);
+        });
     });
 
-    it('should have a property name that is a string', () => {
-        assert(person.hasOwnProperty('name'), "The resulting object did not have a property `name`");
-        assert.equal(typeof person.name, "string");
+    describe('divisible by 5 but not 3', () => {
+        it('should return true', () => {
+            assert.equal(eitherNotBoth(5), true);
+        });
+
+        it('should return true', () => {
+            assert.equal(eitherNotBoth(10), true);
+        });
+
+        it('should return true', () => {
+            assert.equal(eitherNotBoth(20), true);
+        });
     });
 
-    it('should have a property age that is a number', () => {
-        assert(person.hasOwnProperty('age'), "The resulting object did not have a property `age`");
-        assert.equal(typeof person.age, "number");
-    });
+    describe('divisible by 5 and 3', () => {
+        it('should return false', () => {
+            assert.equal(eitherNotBoth(15), false);
+        });
 
-    it('should have a property isReal that is a boolean', () => {
-        assert(person.hasOwnProperty('isReal'), "The resulting object did not have a property `isReal`");
-        assert.equal(typeof person.isReal, "boolean");
+        it('should return false', () => {
+            assert.equal(eitherNotBoth(30), false);
+        });
+
+        it('should return false', () => {
+            assert.equal(eitherNotBoth(60), false);
+        });
     });
-});
+})
+
+
+
