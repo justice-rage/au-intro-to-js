@@ -1,30 +1,17 @@
 const { assert } = require('chai');
-const catchError = require('../catchError');
+const startError = require('../startError');
 
-describe('catchError', () => {
-    it('should catch a thrown error', () => {
+describe('startError', () => {
+    it('should throw a subclass of error', () => {
         let ex;
-        try { 
-            catchError(() => {
-                throw new Error();
-            });
+        try {
+            startError();
         }
-        catch(_ex) {
+        catch (_ex) {
             ex = _ex;
         }
-        assert(!ex, "the error should have been caught");
-    });
-    
-    it('should return the thrown error', () => {
-        let expected = new Error();
-        let actual = catchError(() => {
-            throw expected;
-        });
-        assert.equal(actual, expected, "Should have returned the same error that was caught");
-    });
-
-    it('should return false when no error is thrown', () => {
-        let ex = catchError(() => {});
-        assert.equal(ex, false);
+        assert(ex, "did not throw an error");
+        console.log(ex);
+        assert.equal(ex.__proto__.__proto__.constructor, Error);
     });
 });
