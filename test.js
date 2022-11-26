@@ -1,12 +1,18 @@
 const { assert } = require('chai');
-const thisName = require('../thisName');
+const namedObject = require('../namedObject');
 
-describe('thisName', () => {
-    it('should be bound to an object with the name Bob', () => {
-        assert.equal(thisName(), 'Bob');
+describe('getName', () => {
+    it('should return the name of the object', () => {
+        assert.equal(namedObject.getName(), 'Bob');
     });
 
-    it('should have renamed the function bound thisName', () => {
-        assert.equal(thisName.name, "bound thisName");
+    describe('if the name changes', () => {
+        before(() => {
+            namedObject.name = "Alice";
+        });
+
+        it('should also change the name returned by getName', () => {
+            assert.equal(namedObject.getName(), 'Alice');
+        });
     });
 });
