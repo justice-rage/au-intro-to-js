@@ -3,8 +3,9 @@ function catchError(fn) {
         fn();
     }
     catch(ex) {
-
+        return ex;
     }
+    return false;
 }
 
 module.exports = catchError;
