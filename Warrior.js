@@ -5,6 +5,11 @@ class Warrior extends Hero {
         super();
         this.rage = 0;
     }
+
+    takeDamage(damage) {
+        super.takeDamage(damage);
+        this.rage += 1;
+    }
 }
 
 module.exports = Warrior;
