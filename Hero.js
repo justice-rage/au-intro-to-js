@@ -1,9 +1,9 @@
 class Hero {
-    constructor() {
-        this.health = 50;
+    constructor(health) {
+        this.health = health;
     }
-    takeDamage(number) {
-        this.health -= number;
+    takeDamage(damage) {
+        this.health -= damage;
     }
 }
 

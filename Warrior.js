@@ -1,8 +1,8 @@
 const Hero = require('./Hero');
 
 class Warrior extends Hero {
-    constructor() {
-        super();
+    constructor(health) {
+        super(health);
         this.rage = 0;
     }
 
