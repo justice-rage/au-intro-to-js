@@ -8,4 +8,10 @@ function Rectangle(x, y, height, width) {
 
 Rectangle.prototype = Object.create(Shape.prototype);
 
+Rectangle.prototype.flip = function() {
+    const width = this.width;
+    this.width = this.height;
+    this.height = width;
+}
+
 module.exports = Rectangle;
