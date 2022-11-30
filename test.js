@@ -1,18 +1,20 @@
 const { assert } = require('chai');
-const sortDown = require('../sortDown');
+const sortStringsUp = require('../sortStringsUp');
 
-describe('sortDown', () => {
-    it('should mantain sort order for sorted elements', () => {
-        let actual = [15, 10, 5];
-        sortDown(actual);
-        const expected = [15, 10, 5];
+describe('sortStringsUp', () => {
+    it('should mantain sort order for sorted strings', () => {
+        let actual = ['a', 'b', 'c'];
+        sortStringsUp(actual);
+        const expected = ['a', 'b', 'c'];
+        console.log({ actual, expected });
         assert.sameOrderedMembers(actual, expected);
     });
 
-    it('should fix sort order for unsorted elements', () => {
-        let actual = [7, 4, 2, 3, 0, 5];
-        sortDown(actual);
-        const expected = [7, 5, 4, 3, 2, 0];
+    it('should fix sort order for unsorted strings', () => {
+        let actual = ['berries', 'oranges', 'apples', 'limes', 'lemons'];
+        sortStringsUp(actual);
+        const expected = ['apples', 'berries', 'lemons', 'limes', 'oranges'];
+        console.log({ actual, expected });
         assert.sameOrderedMembers(actual, expected);
     });
 });
