@@ -1,20 +1,42 @@
 const { assert } = require('chai');
-const sortStringsDown = require('../sortStringsDown');
+const sortStudents = require('../sortStudents');
 
-describe('sortStringsDown', () => {
-    it('should mantain sort order for sorted strings', () => {
-        let actual = ["c", "b", "a"];
-        sortStringsDown(actual);
-        const expected = ["c", "b", "a"];
+describe('sortStudents', () => {
+    it('should sort graduated student to the top', () => {
+        let actual = [
+            { id: 1, graduated: false, grade: 100 },
+            { id: 2, graduated: true, grade: 90 },
+        ];
+        sortStudents(actual);
+        const expected = [
+            { id: 2, graduated: true, grade: 90 },
+            { id: 1, graduated: false, grade: 100 },
+        ];
         console.log({ actual, expected });
-        assert.sameOrderedMembers(actual, expected);
+        assert.sameDeepOrderedMembers(actual, expected);
     });
 
-    it('should fix sort order for unsorted strings', () => {
-        let actual = ['berries', 'oranges', 'apples', 'limes', 'lemons'];
-        sortStringsDown(actual);
-        const expected = ["oranges", "limes", "lemons", "berries", "apples"];
+    it('should sort by grade after sorting by graduated', () => {
+        let actual = [
+            { id: 1, graduated: false, grade: 90 },
+            { id: 2, graduated: true, grade: 90 },
+            { id: 3, graduated: true, grade: 95 },
+            { id: 4, graduated: false, grade: 87 },
+            { id: 5, graduated: true, grade: 70 },
+            { id: 6, graduated: false, grade: 88 },
+            { id: 7, graduated: true, grade: 85 },
+        ];
+        sortStudents(actual);
+        const expected = [
+            { id: 3, graduated: true, grade: 95 },
+            { id: 2, graduated: true, grade: 90 },
+            { id: 7, graduated: true, grade: 85 },
+            { id: 5, graduated: true, grade: 70 },
+            { id: 1, graduated: false, grade: 90 },
+            { id: 6, graduated: false, grade: 88 },
+            { id: 4, graduated: false, grade: 87 },
+        ];
         console.log({ actual, expected });
-        assert.sameOrderedMembers(actual, expected);
+        assert.sameDeepOrderedMembers(actual, expected);
     });
 });
