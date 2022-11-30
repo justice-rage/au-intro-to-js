@@ -1,40 +1,42 @@
 const { assert } = require('chai');
-const sortStudents = require('../sortStudents');
+const sortByMonth = require('../sortByMonth');
 
-describe('sortStudents', () => {
-    it('should sort graduated student to the top', () => {
+describe('sortByMonth', () => {
+    it('should fix the sort order for three events', () => {
         let actual = [
-            { id: 1, graduated: false, grade: 100 },
-            { id: 2, graduated: true, grade: 90 },
+            { event: 'dance', month: 'MAR' },
+            { event: 'farmers market', month: 'JUN' },
+            { event: 'parade', month: 'JAN' },
         ];
-        sortStudents(actual);
+        sortByMonth(actual);
         const expected = [
-            { id: 2, graduated: true, grade: 90 },
-            { id: 1, graduated: false, grade: 100 },
+            { event: 'parade', month: 'JAN' },
+            { event: 'dance', month: 'MAR' },
+            { event: 'farmers market', month: 'JUN' },
         ];
         console.log({ actual, expected });
         assert.sameDeepOrderedMembers(actual, expected);
     });
 
-    it('should sort by grade after sorting by graduated', () => {
+    it('should fix the sort order for many events', () => {
         let actual = [
-            { id: 1, graduated: false, grade: 90 },
-            { id: 2, graduated: true, grade: 90 },
-            { id: 3, graduated: true, grade: 95 },
-            { id: 4, graduated: false, grade: 87 },
-            { id: 5, graduated: true, grade: 70 },
-            { id: 6, graduated: false, grade: 88 },
-            { id: 7, graduated: true, grade: 85 },
+            { event: 'haunted hayride', month: 'OCT' },
+            { event: 'holiday party', month: 'DEC' },
+            { event: 'picnic', month: 'SEP' },
+            { event: 'dance', month: 'MAR' },
+            { event: 'snowball fight', month: 'FEB' },
+            { event: 'farmers market', month: 'JUN' },
+            { event: 'parade', month: 'JAN' },
         ];
-        sortStudents(actual);
+        sortByMonth(actual);
         const expected = [
-            { id: 3, graduated: true, grade: 95 },
-            { id: 2, graduated: true, grade: 90 },
-            { id: 7, graduated: true, grade: 85 },
-            { id: 5, graduated: true, grade: 70 },
-            { id: 1, graduated: false, grade: 90 },
-            { id: 6, graduated: false, grade: 88 },
-            { id: 4, graduated: false, grade: 87 },
+            { event: 'parade', month: 'JAN' },
+            { event: 'snowball fight', month: 'FEB' },
+            { event: 'dance', month: 'MAR' },
+            { event: 'farmers market', month: 'JUN' },
+            { event: 'picnic', month: 'SEP' },
+            { event: 'haunted hayride', month: 'OCT' },
+            { event: 'holiday party', month: 'DEC' },
         ];
         console.log({ actual, expected });
         assert.sameDeepOrderedMembers(actual, expected);
