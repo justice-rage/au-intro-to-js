@@ -1,16 +1,16 @@
 const { assert } = require('chai');
-const lessThanFive = require('../lessThanFive');
+const onlyTrue = require('../onlyTrue');
 
-describe('less than five', () => {
-    it('should filter a few elements less than 5', () => {
-        const expected = [0, 2, 4];
-        const actual = lessThanFive([0, 2, 4, 6, 8]);
+describe('only true', () => {
+    it('should filter all false values', () => {
+        const expected = [];
+        const actual = onlyTrue([false, false, false]);
         console.log({expected, actual});
         assert.sameMembers(expected, actual);
     });
-    it('should filter several elements less than 5', () => {
-        const expected = [1, 2, 3, 4];
-        const actual = lessThanFive([1, 2, 3, 4, 5, 6, 7, 8]);
+    it('should filter mixed false and true values', () => {
+        const expected = [true, true, true];
+        const actual = onlyTrue([false, true, true, false, true]);
         console.log({expected, actual});
         assert.sameMembers(expected, actual);
     });

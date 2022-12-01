@@ -1,6 +1,6 @@
 function lessThanFive(array) {
     return array.filter((index) => {
-        return index < 5;
+        return index === true;
     });
 }
 
