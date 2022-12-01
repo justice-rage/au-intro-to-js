@@ -1,12 +1,12 @@
-const plusOne = require('../plusOne');
+const squareRoot = require('../squareRoot');
 const {assert} = require('chai');
 
-describe('plus one', () => {
-    it('should add one to each element for a single element', () => {
-        assert.sameOrderedMembers([1], plusOne([0]));
+describe('squareRoot', () => {
+    it('should take the sqrt for a single element', () => {
+        assert.sameOrderedMembers([1], squareRoot([1]));
     });
 
-    it('should add one to each element for several elements', () => {
-        assert.sameOrderedMembers([1, 2, 3], plusOne([0, 1, 2]));
+    it('should take the sqrt for several elements', () => {
+        assert.sameOrderedMembers([1, 2, 3, 4], squareRoot([1, 4, 9, 16]));
     });
 });
