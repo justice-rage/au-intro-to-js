@@ -1,18 +1,17 @@
-const addScore = require('../addScore');
 const { assert } = require('chai');
+const lessThanFive = require('../lessThanFive');
 
-describe('addScore', () => {
-    it('should add 10 to the score for a single participant', () => {
-        const actual = addScore([{ id: 1, score: 5 }]);
-        const expected = [{ id: 1, score: 15 }];
-        console.log({ actual, expected });
-        assert.sameDeepOrderedMembers(actual, expected);
+describe('less than five', () => {
+    it('should filter a few elements less than 5', () => {
+        const expected = [0, 2, 4];
+        const actual = lessThanFive([0, 2, 4, 6, 8]);
+        console.log({expected, actual});
+        assert.sameMembers(expected, actual);
     });
-
-    it('should add 10 to the score for the first 3 participants', () => {
-        const actual = addScore([{ id: 1, score: 5 }, { id: 3, score: 10 }, { id: 2, score: 15 }, { id: 0, score: 2 }, { id: 5, score: 4 }]);
-        const expected = [{ id: 1, score: 15 }, { id: 3, score: 20 }, { id: 2, score: 25 }, { id: 0, score: 2 }, { id: 5, score: 4 }];
-        console.log({ actual, expected });
-        assert.sameDeepOrderedMembers(actual, expected);
+    it('should filter several elements less than 5', () => {
+        const expected = [1, 2, 3, 4];
+        const actual = lessThanFive([1, 2, 3, 4, 5, 6, 7, 8]);
+        console.log({expected, actual});
+        assert.sameMembers(expected, actual);
     });
 });
