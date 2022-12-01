@@ -1,16 +1,12 @@
-const squared = require('../squared');
-const {assert} = require('chai');
+const squaredMap = require('../squaredMap');
+const { assert } = require('chai');
 
-describe('squared', () => {
-    it('should square 1', () => {
-        assert.equal(squared(1), 1);
+describe('squaredMap', () => {
+    it('should square a single element', () => {
+        assert.sameOrderedMembers(squaredMap([2]), [4]);
     });
 
-    it('should square 2', () => {
-        assert.equal(squared(2), 4);
-    });
-
-    it('should square 4', () => {
-        assert.equal(squared(4), 16);
+    it('should square several elements', () => {
+        assert.sameOrderedMembers(squaredMap([2,3,4]), [4,9,16]);
     });
 });
