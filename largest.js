@@ -4,7 +4,7 @@
 function largest(numbers) {
     return numbers.reduce((accumulator, currentValue) => {
         return (accumulator > currentValue ? accumulator : currentValue);
-    });
+    }, 1);
 }
 
 module.exports = largest;
