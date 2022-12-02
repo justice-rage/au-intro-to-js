@@ -3,7 +3,7 @@
 // i.e. [1,2,3,4,5] => 15
 function sum(numbers) {
     return numbers.reduce((accumulator, currentValue) => {
-        return // <-- sum the numbers here!
+        return accumulator + currentValue;
     });
 }
 
