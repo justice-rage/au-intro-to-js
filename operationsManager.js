@@ -11,18 +11,18 @@ class OperationManager {
     }
 
     undo() {
-        
+        const operation = this.operations.pop();
+        this.undos.push(operation)
     }
 
     redo() {
-        
+        const operation = this.undos.pop();
+        this.operations.push(operation);
     }
 
     redoAll() {
         
     }
 }
-
-
 
 module.exports = OperationManager;
