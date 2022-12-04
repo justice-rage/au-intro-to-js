@@ -3,7 +3,7 @@ class LinkedList {
         this.head = null;
     }
 
-    addFirst() {
+    addFirst(node) {
         next.node = this.head;
         this.head = node;
     }
