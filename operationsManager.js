@@ -21,7 +21,9 @@ class OperationManager {
     }
 
     redoAll() {
-        
+        while(!this.undos.isEmpty()) {
+            this.redo()
+        }
     }
 }
 
