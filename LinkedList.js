@@ -14,9 +14,9 @@ class LinkedList {
             return;
         }
         
-        let ref = this.head;
-        while (ref.next) ref = ref.next;
-        ref.next = node;
+        let ptr = this.head;
+        while(ptr.next) ptr = ptr.next;
+        ptr.next = node;
     }
 
     indexOf(node) {
@@ -31,6 +31,23 @@ class LinkedList {
             idx++;
         }
         while(ptr)
+    }
+
+    removeAt(index) {
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        let idx = 0;
+        let node = this.head;
+
+        while(idx < (index - 1)) {
+            node = node.next;
+            idx++;
+        }
+
+        node.next = node.next.next;
     }
 }
 
