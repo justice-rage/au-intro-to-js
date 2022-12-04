@@ -18,6 +18,20 @@ class LinkedList {
         while (ref.next) ref = ref.next;
         ref.next = node;
     }
+
+    indexOf(node) {
+        let idx = 0;
+        let ptr = this.head;
+
+        do {
+            if(ptr === node) {
+                return idx;
+            }
+            ptr = ptr.next;
+            idx++;
+        }
+        while(ptr)
+    }
 }
 
 module.exports = LinkedList;

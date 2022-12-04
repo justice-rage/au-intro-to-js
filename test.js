@@ -19,6 +19,10 @@ describe('LinkedList instance', () => {
             assert.equal(list.head, node1);
         });
 
+        it('should find the index at 0', () => {
+            assert.equal(list.indexOf(node1), 0)
+        });
+
         describe('after adding another node first', () => {
             const node2 = new Node(2);
             before(() => {
@@ -33,6 +37,14 @@ describe('LinkedList instance', () => {
                 assert.equal(node2.next, node1);
             });
 
+            it('should find the index at 0', () => {
+                assert.equal(list.indexOf(node2), 0)
+            });
+
+            it('should find the first node at index 1', () => {
+                assert.equal(list.indexOf(node1), 1)
+            });
+
             describe('after adding another node last', () => {
                 const node3 = new Node(3);
                 before(() => {
@@ -43,14 +55,14 @@ describe('LinkedList instance', () => {
                     assert.equal(list.head, node2);
                 });
 
-                it('should set this node after the middle node', () => {
-                    assert.equal(node1.next, node3);
+                it('should set this node to the end', () => {
+                    assert.equal(list.head.next.next, node3);
                 });
 
-                it('should set this node to the end', () => {
-                    assert.equal(node3.next, null);
+                it('should find the index at 2', () => {
+                    assert.equal(list.indexOf(node3), 2)
                 });
             });
         });
     });
-});
+}); 
