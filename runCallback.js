@@ -3,7 +3,9 @@
  * @param {function} callbackFunction
  */
  function runCallback(callbackFunction) {
-    callbackFunction();
-}
+    setTimeout(() => {
+        callbackFunction()
+        }, 1000);
+    }
 
 module.exports = runCallback;
