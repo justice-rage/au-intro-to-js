@@ -3,7 +3,7 @@
  * @param {function} callbackFunction
  */
  function runCallback(callbackFunction) {
-
+    callbackFunction();
 }
 
 module.exports = runCallback;
