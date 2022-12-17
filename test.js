@@ -1,26 +1,49 @@
-const timer = require('../timer');
+const lab = require('../lab');
+const messaging = require('../messaging');
+const logs = require('../logs');
+const handleResults = require('../handleResults');
 const { assert } = require('chai');
+const patientId = 1;
 
-describe('timer', () => {
-    const promise = timer();
-
-    it('should return a promise', () => {
-        assert.equal(promise instanceof Promise, true);
+describe('Lab Results', () => {
+    before(async () => {
+        await handleResults(patientId);
     });
 
-    it('should not resolve within 500 milliseconds', (done) => {
-        let resolved = false;
-        promise.then(() => {
-            resolved = true;
+    describe('calling the lab', () => {
+        it('should make one call', () => {
+            assert.equal(lab.__calls.length, 1);
         });
-        setTimeout(() => {
-            assert(!resolved);
-            done();
-        }, 500);
+        it('should send one argument', () => {
+            assert.equal(lab.__calls[0].length, 1);
+        });
+        it('should send the patient id', () => {
+            assert.equal(lab.__calls[0][0], patientId);
+        });
     });
 
-    it('should resolve within 1500 milliseconds', async () => {
-        await promise;
-        assert(true);
-    }).timeout(1500);
+    describe('sending the results', () => {
+        it('should make one call', () => {
+            assert.equal(messaging.__calls.length, 1);
+        });
+        it('should send two arguments', () => {
+            assert.equal(messaging.__calls[0].length, 2);
+        });
+        it('should send the patient id and lab results', () => {
+            assert.equal(messaging.__calls[0][0], patientId);
+            assert.equal(messaging.__calls[0][1], lab.__results);
+        });
+    });
+
+    describe('logging the response', () => {
+        it('should make one call', () => {
+            assert.equal(logs.__calls.length, 1);
+        });
+        it('should send one argument', () => {
+            assert.equal(logs.__calls[0].length, 1);
+        });
+        it('should send the response', () => {
+            assert.equal(logs.__calls[0][0], messaging.__response);
+        });
+    });
 });
