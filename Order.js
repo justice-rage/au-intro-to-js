@@ -7,6 +7,8 @@ class Order {
     request(food) {
         makeFood(food).then(() => {
             this.isReady = true;
+        }).catch((error) => {
+            this.error = error;
         });
     }
 }
