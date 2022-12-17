@@ -1,6 +1,8 @@
 function timer() {
     return new Promise((resolve, reject) => {
-        resolve();
+        setTimeout(function() {
+            resolve();
+        }, 1000);
     });
 }
 

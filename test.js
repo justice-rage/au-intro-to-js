@@ -8,8 +8,19 @@ describe('timer', () => {
         assert.equal(promise instanceof Promise, true);
     });
 
-    it('should resolve', async () => {
+    it('should not resolve within 500 milliseconds', (done) => {
+        let resolved = false;
+        promise.then(() => {
+            resolved = true;
+        });
+        setTimeout(() => {
+            assert(!resolved);
+            done();
+        }, 500);
+    });
+
+    it('should resolve within 1500 milliseconds', async () => {
         await promise;
         assert(true);
-    }).timeout(1000);
+    }).timeout(1500);
 });
