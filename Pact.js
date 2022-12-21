@@ -1,18 +1,18 @@
 class Pact {
     constructor(fn) {
-        this.resolve = () => {
-
+        this.resolve = (value) => {
+            this.thenFn(value);
         }
         this.catch = () => {
 
         }
         fn(this.resolve, this.catch);
     }
-    then() {
-
+    then(_then) {
+        this.thenFn = _then;
     }
     catch() {
-        
+
     }
 }
 
