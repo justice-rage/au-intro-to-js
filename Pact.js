@@ -3,7 +3,7 @@ class Pact {
         this.resolve = (value) => {
             this.thenFn(value);
         }
-        this.catch = () => {
+        this.reject = () => {
 
         }
         fn(this.resolve, this.catch);
