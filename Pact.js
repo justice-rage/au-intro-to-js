@@ -25,7 +25,12 @@ class Pact {
         if (this.status === STATUS.PENDING) {
             return new Pact((resolve, reject) => {
                 this.thenFns.push((val) => {
-                    resolve(_then(val));
+                    if (val instanceof Pact) {
+                        val.then((val) => resolve(_then(val)));
+                    }
+                    else {
+                        resolve(_then(val));
+                    }
                 });
             });
         }
