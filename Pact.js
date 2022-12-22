@@ -23,7 +23,11 @@ class Pact {
     }
     then(_then) {
         if (this.status === STATUS.PENDING) {
-            this.thenFns.push(_then);
+            return new Pact((resolve, reject) => {
+                this.thenFns.push((val) => {
+                    resolve(_then(val));
+                });
+            });
         }
         else if (this.status === STATUS.RESOLVED) {
             _then(this.resolvedValue);
