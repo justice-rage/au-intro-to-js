@@ -11,7 +11,7 @@ Do not expect file or folder names to stay the same within this repository. As s
 | JavaScript Fundamentals | |
 | Week 1 | Complete |
 | Week 2 | Complete |
-| Week 3 | In-Progress |
+| Week 3 | Complete |
 
 ---
 
